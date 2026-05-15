@@ -137,6 +137,238 @@ body {
   box-shadow: $shadow-glow-accent;
 }
 
+// Buttons - Futuristic AI-First Design 2026
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-xl;
+  border-radius: $radius-full;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: $font-primary;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  overflow: hidden;
+  text-decoration: none;
+  color: $text-primary;
+  white-space: nowrap;
+  
+  // Liquid glassmorphism base
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  // Animated gradient border
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+      135deg, 
+      transparent 0%, 
+      rgba(0, 212, 255, 0.5) 25%, 
+      rgba(123, 44, 191, 0.5) 50%, 
+      rgba(0, 212, 255, 0.5) 75%, 
+      transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  // Inner glow effect
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      ellipse at center, 
+      rgba(0, 212, 255, 0.15) 0%, 
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  // Shimmer effect on hover
+  .btn-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.1), 
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+      0 10px 40px rgba(0, 212, 255, 0.2),
+      0 0 60px rgba(0, 212, 255, 0.1),
+      inset 0 0 20px rgba(0, 212, 255, 0.05);
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    &::after {
+      opacity: 1;
+    }
+    
+    .btn-shimmer {
+      transform: translateX(100%);
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+  
+  // Arrow animation
+  .btn-arrow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.25rem;
+    font-weight: 300;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: currentColor;
+      border-radius: 50%;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+    }
+  }
+  
+  &:hover .btn-arrow {
+    transform: translateX(8px);
+    
+    &::before {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  // Primary variant - Gradient glow
+  &-primary {
+    background: linear-gradient(
+      135deg, 
+      rgba(0, 212, 255, 0.15) 0%, 
+      rgba(123, 44, 191, 0.15) 100%
+    );
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    
+    &:hover {
+      background: linear-gradient(
+        135deg, 
+        rgba(0, 212, 255, 0.25) 0%, 
+        rgba(123, 44, 191, 0.25) 100%
+      );
+      border-color: rgba(0, 212, 255, 0.6);
+      box-shadow: 
+        0 10px 40px rgba(0, 212, 255, 0.3),
+        0 0 80px rgba(0, 212, 255, 0.2),
+        inset 0 0 30px rgba(0, 212, 255, 0.1);
+    }
+  }
+  
+  // Secondary variant - Subtle glass
+  &-secondary {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+  }
+  
+  // Accent variant - Pink/purple gradient
+  &-accent {
+    background: linear-gradient(
+      135deg, 
+      rgba(255, 0, 110, 0.15) 0%, 
+      rgba(199, 125, 255, 0.15) 100%
+    );
+    border: 1px solid rgba(255, 0, 110, 0.3);
+    
+    &:hover {
+      background: linear-gradient(
+        135deg, 
+        rgba(255, 0, 110, 0.25) 0%, 
+        rgba(199, 125, 255, 0.25) 100%
+      );
+      border-color: rgba(255, 0, 110, 0.6);
+      box-shadow: 
+        0 10px 40px rgba(255, 0, 110, 0.3),
+        0 0 80px rgba(255, 0, 110, 0.2),
+        inset 0 0 30px rgba(255, 0, 110, 0.1);
+    }
+  }
+  
+  // Magnetic effect class
+  &.magnetic {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  // Glow effect modifiers
+  &.glow-effect {
+    box-shadow: 
+      0 0 30px rgba(0, 212, 255, 0.3),
+      0 0 60px rgba(0, 212, 255, 0.1);
+    
+    &:hover {
+      box-shadow: 
+        0 0 40px rgba(0, 212, 255, 0.5),
+        0 0 100px rgba(0, 212, 255, 0.2);
+    }
+  }
+  
+  &.glow-effect-accent {
+    box-shadow: 
+      0 0 30px rgba(255, 0, 110, 0.3),
+      0 0 60px rgba(255, 0, 110, 0.1);
+    
+    &:hover {
+      box-shadow: 
+        0 0 40px rgba(255, 0, 110, 0.5),
+        0 0 100px rgba(255, 0, 110, 0.2);
+    }
+  }
+}
+
+// Spin animation for loader
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 // App Shell Layout
 .main-content {
   min-height: calc(100vh - 200px);
