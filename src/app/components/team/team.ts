@@ -1,126 +1,99 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-export interface TeamMember {
-  id: number;
+export interface Director {
+  key: string;
   name: string;
   position: string;
-  positionKey: string;
   image: string;
-  bio: string;
-  social: {
-    linkedin?: string;
-    twitter?: string;
-    email?: string;
-  };
-  stats?: {
-    experience: string;
-    projects: string;
-  };
+}
+
+export interface CeoMember {
+  key: string;
+  name: string;
+  position: string;
+  image: string;
 }
 
 @Component({
   selector: 'app-team',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, RouterLink, TranslateModule],
   templateUrl: './team.html',
   styleUrl: './team.scss'
 })
-export class Team implements OnInit {
-  teamMembers: TeamMember[] = [
+export class Team {
+  directorsBoard: Director[] = [
     {
-      id: 1,
-      name: 'Алексей Иванов',
-      position: 'CEO & Founder',
-      positionKey: 'team.ceo',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
-      bio: 'Visionary leader with 15+ years in fintech. Former CTO at major Kazakhstani bank. Passionate about digital transformation.',
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'alexey@ddc.kz'
-      },
-      stats: {
-        experience: '15+',
-        projects: '50+'
-      }
+      key: 'Zhalenov',
+      name: 'Жаленов Бинур Муратович',
+      position: 'Председатель Совета директоров',
+      image: '/images/directors-board/Zhalenov_Binur.jpg'
     },
     {
-      id: 2,
-      name: 'Елена Петрова',
-      position: 'Chief Technology Officer',
-      positionKey: 'team.cto',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
-      bio: 'Technology expert specializing in blockchain and AI. Led development of award-winning banking platforms.',
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'elena@ddc.kz'
-      },
-      stats: {
-        experience: '12+',
-        projects: '35+'
-      }
+      key: 'Uzbekov',
+      name: 'Узбеков Асхат Архатович',
+      position: 'Член Совета директоров',
+      image: '/images/directors-board/Uzbekov_Askhat.png'
     },
     {
-      id: 3,
-      name: 'Дмитрий Смирнов',
-      position: 'Chief Financial Officer',
-      positionKey: 'team.cfo',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400',
-      bio: 'Financial strategist with deep banking industry knowledge. Expert in fintech investments and growth.',
-      social: {
-        linkedin: '#',
-        email: 'dmitry@ddc.kz'
-      },
-      stats: {
-        experience: '18+',
-        projects: '40+'
-      }
+      key: 'Arinova',
+      name: 'Аринова Айжан Бейбытовна',
+      position: 'Член Совета директоров',
+      image: '/images/directors-board/Arinova_Aizhan.jpg'
+    },{
+      key: 'mainCeo',
+      name: 'Амардинов Малик Алимжанович',
+      position: 'Председатель Правления',
+      image: '/images/directors-board/Amardinov.jpg'
     },
     {
-      id: 4,
-      name: 'Мария Козлова',
-      position: 'Chief Operating Officer',
-      positionKey: 'team.coo',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',
-      bio: 'Operations expert driving efficiency and scalability. Background in enterprise software delivery.',
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'maria@ddc.kz'
-      },
-      stats: {
-        experience: '10+',
-        projects: '25+'
-      }
+      key: 'Alpamysov',
+      name: 'Алпамысов Абай Абдисаметович',
+      position: 'Член Совета директоров (независимый)',
+      image: '/images/directors-board/Alpamysov_Abai.png'
+    },
+    {
+      key: 'Konirbayev',
+      name: 'Конирбаев Баян Кайратович',
+      position: 'Член Совета директоров (независимый)',
+      image: '/images/directors-board/Bayan_Kb.png'
+    },
+    {
+      key: 'Marat',
+      name: 'Марат Аскар',
+      position: 'Член Совета директоров (независимый)',
+      image: '/images/directors-board/Marat_Askar.png'
     }
   ];
 
-  values = [
+  ceoBoard: CeoMember[] = [
     {
-      icon: '🎯',
-      title: 'Innovation',
-      description: 'Pushing boundaries with cutting-edge technology'
+      key: 'mainCeo',
+      name: 'Амардинов Малик Алимжанович',
+      position: 'Председатель Правления',
+      image: '/images/directors-board/Amardinov.jpg'
     },
     {
-      icon: '🔒',
-      title: 'Security',
-      description: 'Bank-grade security in every solution'
+      key: 'ceoBorder1',
+      name: 'Дурмагамбетов Ерлан Дмитриевич',
+      position: 'Первый заместитель Председателя Правления',
+      image: '/images/directors-board/Durmagambetov.jpg'
     },
     {
-      icon: '🤝',
-      title: 'Partnership',
-      description: 'Building long-term relationships with clients'
+      key: 'ceoBorder2',
+      name: 'Кентбеков Аргын Салаватович',
+      position: 'Заместитель Председателя Правления',
+      image: '/images/directors-board/Kentbekov.jpg'
     },
     {
-      icon: '🚀',
-      title: 'Excellence',
-      description: 'Delivering world-class software solutions'
+      key: 'ceoBorder3',
+      name: 'Имажанов Бахытжан Гылымбекович',
+      position: 'Заместитель Председателя Правления',
+      image: '/images/directors-board/Imajanov.jpg'
     }
   ];
-
-  ngOnInit() {
-  }
 }
+

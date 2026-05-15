@@ -50,10 +50,10 @@
       transform: scale(1.05);
     }
 
-    .logo-cube {
-      font-size: 2rem;
-      color: $primary-color;
-      animation: rotate 10s linear infinite;
+    .logo-image {
+      height: 40px;
+      width: auto;
+      display: block;
     }
 
     .logo-accent {
@@ -69,12 +69,12 @@
   }
 
   .social-links {
-    display: flex;
-    gap: $spacing-sm;
+      display: flex;
+      gap: $spacing-sm;
 
     .social-link {
-      display: flex;
-      align-items: center;
+  display: flex;
+  align-items: center;
       justify-content: center;
       width: 40px;
       height: 40px;
@@ -112,7 +112,7 @@
       width: 40px;
       height: 2px;
       background: $gradient-primary;
-    }
+  }
   }
 
   ul {

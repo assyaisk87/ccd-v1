@@ -42,6 +42,12 @@
       color: $primary-color;
       animation: rotate 10s linear infinite;
     }
+
+    .logo-image {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
   }
   
   .logo-text {
