@@ -3,8 +3,11 @@
     <div class="footer-content">
       <!-- Brand Section -->
       <div class="footer-brand">
-        <div class="footer-logo">DDC KZ</div>
-        <p class="footer-tagline">Leading fintech innovation in Kazakhstan</p>
+        <a routerLink="/" class="footer-logo">
+          <span class="logo-cube">◈</span>
+          <span>DDC<span class="logo-accent">.KZ</span></span>
+        </a>
+        <p class="footer-tagline">{{ 'home.description' | translate }}</p>
         <div class="social-links">
           @for (social of socialLinks; track social) {
             <a [href]="social.url" class="social-link glass-effect">
@@ -16,12 +19,12 @@
 
       <!-- Quick Links -->
       <div class="footer-links">
-        <h3>{{ 'nav.menu' | translate }}</h3>
+        <h3>{{ 'nav.home' | translate }}</h3>
         <ul>
           @for (link of footerLinks; track link.path) {
             <li>
               <a [routerLink]="link.path" class="footer-link">
-                {{ link.key | translate }}
+                {{ 'nav.' + link.key | translate }}
               </a>
             </li>
           }

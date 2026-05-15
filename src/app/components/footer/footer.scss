@@ -6,4 +6,243 @@
   padding: $spacing-3xl 0 $spacing-xl;
   margin-top: $spacing-3xl;
   color: $text-primary;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $gradient-primary;
+    opacity: 0.5;
+  }
 }
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+}
+
+// Brand Section
+.footer-brand {
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: $text-primary;
+    transition: transform $transition-base;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-cube {
+      font-size: 2rem;
+      color: $primary-color;
+      animation: rotate 10s linear infinite;
+    }
+
+    .logo-accent {
+      color: $primary-color;
+    }
+  }
+
+  .footer-tagline {
+    margin: $spacing-md 0 $spacing-lg;
+    color: $text-secondary;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: $spacing-sm;
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-md;
+      color: $text-secondary;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all $transition-base;
+
+      &:hover {
+        color: $text-primary;
+        background: rgba($primary-color, 0.1);
+        transform: translateY(-3px);
+        box-shadow: $shadow-glow-primary;
+      }
+    }
+  }
+}
+
+// Footer Links
+.footer-links {
+  h3 {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: $spacing-lg;
+    color: $text-primary;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: $gradient-primary;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: $spacing-sm;
+
+      .footer-link {
+        color: $text-secondary;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all $transition-base;
+        display: inline-block;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: $gradient-primary;
+          transition: width $transition-base;
+        }
+
+        &:hover {
+          color: $primary-color;
+          transform: translateX(5px);
+
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Contact Info
+.footer-contact {
+  h3 {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: $spacing-lg;
+    color: $text-primary;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: $gradient-primary;
+    }
+  }
+
+  .contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: $spacing-sm;
+      color: $text-secondary;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      transition: all $transition-base;
+
+      &:hover {
+        color: $text-primary;
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+// Footer Bottom
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $spacing-xl;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+  gap: $spacing-md;
+
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: $spacing-lg;
+
+    .footer-link {
+      color: $text-muted;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

@@ -24,10 +24,10 @@
         </p>
         
         <div class="hero-cta">
-          <button class="btn btn-primary glow-effect">
+          <a routerLink="/contacts" class="btn btn-primary glow-effect">
             {{ 'home.cta_button' | translate }}
             <span class="btn-arrow">→</span>
-          </button>
+          </a>
           <button class="btn btn-secondary glass-effect">
             <span class="btn-play">▶</span>
             {{ 'nav.projects' | translate }}
@@ -119,11 +119,12 @@
       <div class="cta-content glass-effect">
         <h2 class="cta-title">Ready to Transform Your Banking?</h2>
         <p class="cta-description">Join leading banks in Kazakhstan using our cutting-edge solutions</p>
-        <button class="btn btn-primary glow-effect-accent">
+        <a routerLink="/contacts" class="btn btn-primary glow-effect-accent">
           {{ 'contacts.title' | translate }}
           <span class="btn-arrow">→</span>
-        </button>
+        </a>
       </div>
     </div>
   </section>
 </div>
+

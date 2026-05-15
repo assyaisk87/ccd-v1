@@ -137,6 +137,13 @@ body {
   box-shadow: $shadow-glow-accent;
 }
 
+// App Shell Layout
+.main-content {
+  min-height: calc(100vh - 200px);
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
 // Animations
 @keyframes float {
   0%, 100% {

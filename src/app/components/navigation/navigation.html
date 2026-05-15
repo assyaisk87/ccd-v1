@@ -16,6 +16,7 @@
             <a 
               routerLink="{{ item.path }}" 
               routerLinkActive="active"
+              [routerLinkActiveOptions]="item.path === '/' ? { exact: true } : {}"
               class="menu-link"
               (click)="closeMobileMenu()"
             >
