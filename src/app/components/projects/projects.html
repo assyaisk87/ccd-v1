@@ -1,0 +1,72 @@
+<div class="projects-container">
+  <!-- Header Section -->
+  <section class="projects-header">
+    <div class="container">
+      <span class="section-badge glass-effect">{{ 'nav.projects' | translate }}</span>
+      <h1 class="section-title">{{ 'projects.title' | translate }}</h1>
+      <p class="section-description">{{ 'projects.subtitle' | translate }}</p>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-section container">
+    <!-- Category Filter -->
+    <div class="category-filter">
+      @for (category of categories; track category) {
+        <button 
+          class="category-btn glass-effect" 
+          [class.active]="selectedCategory === category"
+          (click)="filterProjects(category)"
+        >
+          {{ category }}
+        </button>
+      }
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      @for (project of getFilteredProjects(); track project.id) {
+        <div class="project-card glass-effect">
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.name">
+            <div class="project-overlay">
+              <a [href]="project.link" class="project-link-btn">
+                View Project →
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-category" [style.color]="getCategoryColor(project.category)">
+              {{ project.category }}
+            </span>
+            <h3 class="project-title">{{ project.name }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-technologies">
+              @for (tech of project.technologies; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="projects-cta">
+    <div class="cta-background">
+      <div class="cta-glow"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content glass-effect">
+        <h2 class="cta-title">Ready to Start Your Project?</h2>
+        <p class="cta-description">Join leading banks using our cutting-edge solutions</p>
+        <button class="btn btn-primary glow-effect">
+          {{ 'contacts.title' | translate }}
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+

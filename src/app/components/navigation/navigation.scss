@@ -1,0 +1,251 @@
+@import '../../../styles';
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  padding: $spacing-lg 0;
+  transition: all $transition-base;
+  
+  &.scrolled {
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: $spacing-md 0;
+  }
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-xl;
+  }
+}
+
+// Logo
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  text-decoration: none;
+  transition: transform $transition-base;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  .logo-icon {
+    .logo-cube {
+      font-size: 2rem;
+      color: $primary-color;
+      animation: rotate 10s linear infinite;
+    }
+  }
+  
+  .logo-text {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+    .logo-accent {
+      color: $primary-color;
+    }
+  }
+}
+
+// Navigation Menu
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+  
+  @include tablet {
+    display: none;
+  }
+  
+  .menu-list {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    list-style: none;
+    
+    .menu-item {
+      .menu-link {
+        position: relative;
+        padding: $spacing-sm 0;
+        color: $text-secondary;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color $transition-base;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: $gradient-primary;
+          transition: width $transition-base;
+        }
+        
+        &:hover,
+        &.active {
+          color: $text-primary;
+          
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Language Switcher
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-left: $spacing-xl;
+  padding-left: $spacing-xl;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: $text-secondary;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: $spacing-xs $spacing-sm;
+    transition: color $transition-base;
+    
+    &:hover {
+      color: $primary-color;
+    }
+    
+    &.active {
+      color: $primary-color;
+    }
+  }
+  
+  .lang-separator {
+    color: $text-muted;
+  }
+}
+
+// CTA Button
+.btn-cta {
+  padding: $spacing-sm $spacing-xl;
+  background: $gradient-primary;
+  color: $text-primary;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow-primary;
+  }
+}
+
+// Mobile Menu Toggle
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm;
+  
+  @include tablet {
+    display: flex;
+  }
+  
+  .hamburger-line {
+    width: 25px;
+    height: 2px;
+    background: $text-primary;
+    border-radius: 2px;
+    transition: all $transition-base;
+    
+    &:nth-child(1) {
+      transform: translateY(0);
+      
+      &.open {
+        transform: translateY(7px) rotate(45deg);
+      }
+    }
+    
+    &:nth-child(2) {
+      opacity: 1;
+      
+      &.open {
+        opacity: 0;
+      }
+    }
+    
+    &:nth-child(3) {
+      transform: translateY(0);
+      
+      &.open {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+// Mobile Language Switcher
+.mobile-language-switcher {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-lg;
+  background: $dark-surface;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  transform: translateY(100%);
+  transition: transform $transition-base;
+  z-index: $z-fixed;
+  
+  @include tablet {
+    display: none;
+  }
+  
+  &.open {
+    display: flex;
+    transform: translateY(0);
+  }
+  
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: $text-secondary;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: $spacing-sm $spacing-md;
+    transition: color $transition-base;
+    
+    &:hover {
+      color: $primary-color;
+    }
+    
+    &.active {
+      color: $primary-color;
+    }
+  }
+  
+  .lang-separator {
+    color: $text-muted;
+  }
+}

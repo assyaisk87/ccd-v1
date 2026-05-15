@@ -1,0 +1,9 @@
+﻿@import '../../../styles';
+
+.footer {
+  background: $dark-bg;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: $spacing-3xl 0 $spacing-xl;
+  margin-top: $spacing-3xl;
+  color: $text-primary;
+}

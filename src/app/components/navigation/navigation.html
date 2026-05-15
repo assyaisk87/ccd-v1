@@ -1,0 +1,79 @@
+<nav class="navigation" [class.scrolled]="isScrolled">
+  <div class="container nav-container">
+    <!-- Logo -->
+    <a routerLink="/" class="logo" (click)="closeMobileMenu()">
+      <div class="logo-icon">
+        <span class="logo-cube">◈</span>
+      </div>
+      <span class="logo-text">DDC<span class="logo-accent">.KZ</span></span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="nav-menu" [class.open]="isMobileMenuOpen">
+      <ul class="menu-list">
+        @for (item of menuItems; track item) {
+          <li class="menu-item">
+            <a 
+              routerLink="{{ item.path }}" 
+              routerLinkActive="active"
+              class="menu-link"
+              (click)="closeMobileMenu()"
+            >
+              {{ 'nav.' + item.key | translate }}
+            </a>
+          </li>
+        }
+      </ul>
+
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button 
+          class="lang-btn" 
+          [class.active]="currentLang === 'ru'"
+          (click)="changeLanguage('ru')"
+        >
+          RU
+        </button>
+        <span class="lang-separator">|</span>
+        <button 
+          class="lang-btn" 
+          [class.active]="currentLang === 'en'"
+          (click)="changeLanguage('en')"
+        >
+          EN
+        </button>
+      </div>
+
+      <!-- CTA Button -->
+      <a routerLink="/contacts" class="btn-cta" (click)="closeMobileMenu()">
+        {{ 'contacts.title' | translate }}
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+      <span class="hamburger-line" [class.open]="isMobileMenuOpen"></span>
+      <span class="hamburger-line" [class.open]="isMobileMenuOpen"></span>
+      <span class="hamburger-line" [class.open]="isMobileMenuOpen"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Language Switcher -->
+  <div class="mobile-language-switcher" [class.open]="isMobileMenuOpen">
+    <button 
+      class="lang-btn" 
+      [class.active]="currentLang === 'ru'"
+      (click)="changeLanguage('ru')"
+    >
+      RU
+    </button>
+    <span class="lang-separator">|</span>
+    <button 
+      class="lang-btn" 
+      [class.active]="currentLang === 'en'"
+      (click)="changeLanguage('en')"
+    >
+      EN
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #060816;
+  color: white;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 84px;
+  font-weight: 900;
+}
+
+.hero-content span {
+  background: linear-gradient(
+    90deg,
+    #67e8f9,
+    #60a5fa,
+    #a78bfa
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

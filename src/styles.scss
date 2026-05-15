@@ -1,1 +1,188 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+
+// Colors
+$primary-color: #00D4FF;
+$secondary-color: #7B2CBF;
+$accent-color: #FF006E;
+$success-color: #00FFA3;
+$warning-color: #FFB800;
+$error-color: #FF4444;
+
+// Background Colors
+$dark-bg: #0A0A0F;
+$dark-surface: #12121A;
+$dark-elevated: #1A1A25;
+
+// Text Colors
+$text-primary: #FFFFFF;
+$text-secondary: #B0B0B0;
+$text-muted: #6B7280;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, #00D4FF 0%, #7B2CBF 100%);
+$gradient-dark: linear-gradient(180deg, #0A0A0F 0%, #12121A 100%);
+$gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+// Border Radius
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+$shadow-glow-primary: 0 0 30px rgba(0, 212, 255, 0.5);
+$shadow-glow-secondary: 0 0 30px rgba(123, 44, 191, 0.5);
+
+// Transitions
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-Index
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-fixed: 300;
+$z-modal-backdrop: 400;
+$z-modal: 500;
+$z-tooltip: 600;
+
+// Fonts
+$font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// Container
+$max-container-width: 1280px;
+
+// Mixins
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+// Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  background: $dark-bg;
+  color: $text-primary;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: $max-container-width;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+// Glass Effect
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Text Gradient
+.text-gradient {
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Animations
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Utility Classes
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.glow-effect {
+  box-shadow: $shadow-glow-primary;
+}
+
+.glow-effect-accent {
+  box-shadow: $shadow-glow-secondary;
+}
+

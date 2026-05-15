@@ -1,0 +1,129 @@
+<div class="home-container">
+  <!-- Hero Section with 3D Background -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="particles-container" id="particles"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    
+    <div class="hero-content container">
+      <div class="hero-text animate-slide-in-up">
+        <div class="hero-badge glass-effect">
+          <span class="badge-dot"></span>
+          <span>🚀 Leading Fintech Innovation in Kazakhstan</span>
+        </div>
+        
+        <h1 class="hero-title">
+          <span class="text-gradient">DDC KZ</span>
+        </h1>
+        <h2 class="hero-subtitle">
+          {{ 'home.subtitle' | translate }}
+        </h2>
+        <p class="hero-description">
+          {{ 'home.description' | translate }}
+        </p>
+        
+        <div class="hero-cta">
+          <button class="btn btn-primary glow-effect">
+            {{ 'home.cta_button' | translate }}
+            <span class="btn-arrow">→</span>
+          </button>
+          <button class="btn btn-secondary glass-effect">
+            <span class="btn-play">▶</span>
+            {{ 'nav.projects' | translate }}
+          </button>
+        </div>
+        
+        <div class="hero-stats">
+          @for (stat of stats; track stat) {
+            <div class="stat-item glass-effect">
+              <div class="stat-value" [style.color]="stat.color || '#00D4FF'">
+                {{ stat.value }}
+              </div>
+              <div class="stat-label">{{ stat.label }}</div>
+            </div>
+          }
+        </div>
+      </div>
+      
+      <div class="hero-visual animate-float">
+        <div class="floating-cards">
+          <div class="card-3d card-1 glass-effect">
+            <div class="card-icon">💳</div>
+            <div class="card-label">Digital Banking</div>
+          </div>
+          <div class="card-3d card-2 glass-effect">
+            <div class="card-icon">🔒</div>
+            <div class="card-label">Security</div>
+          </div>
+          <div class="card-3d card-3 glass-effect">
+            <div class="card-icon">📊</div>
+            <div class="card-label">Analytics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div class="mouse animate-pulse">
+        <div class="wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section container">
+    <div class="section-header">
+      <span class="section-badge glass-effect">{{ 'nav.achievements' | translate }}</span>
+      <h2 class="section-title">{{ 'home.features.title1' | translate }}</h2>
+      <p class="section-description">Advanced solutions for modern banking</p>
+    </div>
+    
+    <div class="features-grid">
+      @for (feature of features; track feature) {
+        <div class="feature-card glass-effect" [ngStyle]="{borderColor: feature.color}">
+          <div class="feature-icon" [style.background]="feature.color + '20'">
+            {{ feature.icon }}
+          </div>
+          <h3 class="feature-title">{{ feature.titleKey | translate }}</h3>
+          <p class="feature-description">{{ feature.descKey | translate }}</p>
+          <div class="feature-link" [style.color]="feature.color">
+            Learn More →
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="technologies-section container">
+    <div class="tech-header">
+      <h2 class="section-title">Powered By</h2>
+    </div>
+    <div class="tech-grid">
+      @for (tech of technologies; track tech) {
+        <div class="tech-item glass-effect">
+          <span>{{ tech }}</span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-background">
+      <div class="cta-glow"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content glass-effect">
+        <h2 class="cta-title">Ready to Transform Your Banking?</h2>
+        <p class="cta-description">Join leading banks in Kazakhstan using our cutting-edge solutions</p>
+        <button class="btn btn-primary glow-effect-accent">
+          {{ 'contacts.title' | translate }}
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

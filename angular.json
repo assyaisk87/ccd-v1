@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "qazcore-bank": {
+    "ddc": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -43,8 +43,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "20kB",
+                  "maximumError": "50kB"
                 }
               ],
               "outputHashing": "all"
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "qazcore-bank:build:production"
+              "buildTarget": "ddc:build:production"
             },
             "development": {
-              "buildTarget": "qazcore-bank:build:development"
+              "buildTarget": "ddc:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,3 +76,4 @@
     }
   }
 }
+
